@@ -8,3 +8,13 @@ for folder in *; do
     # Se a pasta NÃO tem underscore, é o lixo antigo
     echo "[CANDIDATO A LIXO]: $folder"
 done
+
+
+#A faxina
+cd /home/
+for folder in *; do
+    [[ "$folder" == "clp" || "$folder" == "mysql" || "$folder" == "localhost" ]] && continue
+    [[ "$folder" == *"_"* ]] && continue
+    echo "Deletando $folder..."
+    rm -rf "$folder"
+done
