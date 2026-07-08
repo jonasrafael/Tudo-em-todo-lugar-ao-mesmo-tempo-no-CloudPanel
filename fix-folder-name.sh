@@ -18,3 +18,10 @@ for folder in *; do
     echo "Deletando $folder..."
     rm -rf "$folder"
 done
+
+
+# 1. Remove os htdocs vazios identificados
+find /home/ -maxdepth 2 -name "htdocs" -type d -empty -exec rm -rf {} \;
+
+# 2. Remove as pastas dos domínios que ficaram órfãs (agora que o htdocs sumiu, a pasta do domínio está vazia)
+find /home/ -maxdepth 1 -type d -empty -delete
